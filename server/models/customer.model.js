@@ -22,6 +22,30 @@ const customerSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
+
+        // Lab 4 — Wishlist: stores Product ObjectId references
+        wishlist: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product",
+            },
+        ],
+
+        // Lab 5 — Cart: stores product reference + quantity
+        cart: [
+            {
+                product: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "Product",
+                    required: true,
+                },
+                quantity: {
+                    type: Number,
+                    default: 1,
+                    min: 1,
+                },
+            },
+        ],
     },
     {
         timestamps: { createdAt: true, updatedAt: false }

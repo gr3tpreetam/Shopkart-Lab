@@ -6,6 +6,11 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import Wishlist from "./pages/Wishlist";       // Lab 4
+import Cart from "./pages/Cart";               // Lab 5
+import Checkout from "./pages/Checkout";       // Lab 6
+import MyOrders from "./pages/MyOrders";       // Lab 6
+import OrderDetail from "./pages/OrderDetail"; // Lab 6
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -19,6 +24,11 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orders" element={<MyOrders />} />
+        <Route path="/orders/:id" element={<OrderDetail />} />
       </Routes>
     </>
   );

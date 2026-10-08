@@ -1,9 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import api from "../services/api";
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { cartCount } = useCart();
 
   const handleLogout = async () => {
     try {
@@ -45,6 +47,43 @@ function Navbar() {
           }
         >
           Products
+        </Link>
+
+        {/* Lab 4 — Wishlist */}
+        <Link
+          to="/wishlist"
+          className={
+            "nav-link" +
+            (location.pathname === "/wishlist" ? " active" : "")
+          }
+        >
+          Wishlist
+        </Link>
+
+        {/* Lab 5 — Cart with item count badge */}
+        <Link
+          to="/cart"
+          className={
+            "nav-link" +
+            (location.pathname === "/cart" ? " active" : "")
+          }
+          style={{ position: "relative" }}
+        >
+          Cart
+          {cartCount > 0 && (
+            <span className="cart-badge">{cartCount}</span>
+          )}
+        </Link>
+
+        {/* Lab 6 — My Orders */}
+        <Link
+          to="/orders"
+          className={
+            "nav-link" +
+            (location.pathname.startsWith("/orders") ? " active" : "")
+          }
+        >
+          Orders
         </Link>
 
         <button className="logout-button" onClick={handleLogout}>

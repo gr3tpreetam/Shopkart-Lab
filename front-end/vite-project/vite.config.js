@@ -14,6 +14,21 @@ export default defineConfig({
         target: "http://localhost:5000",
         changeOrigin: true,
       },
+      // Lab 4 — Wishlist
+      "/wishlist": {
+        target: "http://localhost:5000",
+        changeOrigin: true,
+      },
+      // Lab 5 — Cart
+      "/cart": {
+        target: "http://localhost:5000",
+        changeOrigin: true,
+      },
+      // Lab 6 — Orders
+      "/orders": {
+        target: "http://localhost:5000",
+        changeOrigin: true,
+      },
     },
   },
 });
