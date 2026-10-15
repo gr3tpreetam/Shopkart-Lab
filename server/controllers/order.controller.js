@@ -125,6 +125,13 @@ export const verifyPayment = async (req, res) => {
         order.razorpayPaymentId = razorpayPaymentId;
         await order.save();
 
+        // Deduct stock for each product in the order
+        for (const item of order.items) {
+            await Product.findByIdAndUpdate(item.product, {
+                $inc: { stock: -item.quantity }
+            });
+        }
+
         // Clear user cart
         await Customer.findByIdAndUpdate(req.user._id, { cart: [] });
 

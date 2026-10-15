@@ -1,7 +1,7 @@
+import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
 import cors from "cors";
 
 import productRoutes from "./routes/product.routes.js";
@@ -9,8 +9,6 @@ import customerRoutes from "./routes/customer.routes.js";
 import wishlistRoutes from "./routes/wishlist.routes.js";  // Lab 4
 import cartRoutes from "./routes/cart.routes.js";          // Lab 5
 import orderRoutes from "./routes/order.routes.js";        // Lab 6
-
-dotenv.config();
 
 const app = express();
 

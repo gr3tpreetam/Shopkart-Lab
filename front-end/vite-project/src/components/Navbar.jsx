@@ -24,20 +24,11 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to="/home" className="logo">
+      <Link to="/products" className="logo">
         ShopKart
       </Link>
 
       <div className="nav-links">
-        <Link
-          to="/home"
-          className={
-            "nav-link" +
-            (location.pathname === "/home" ? " active" : "")
-          }
-        >
-          Home
-        </Link>
 
         <Link
           to="/products"
@@ -84,6 +75,17 @@ function Navbar() {
           }
         >
           Orders
+        </Link>
+
+        {/* Settings */}
+        <Link
+          to="/settings"
+          className={
+            "nav-link" +
+            (location.pathname === "/settings" ? " active" : "")
+          }
+        >
+          ⚙️ Settings
         </Link>
 
         <button className="logout-button" onClick={handleLogout}>

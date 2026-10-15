@@ -82,7 +82,7 @@ const products = [
     description: "Modern minimalist LED desk lamp with adjustable brightness. Touch control with USB charging port.",
     price: 1299,
     category: "Home",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=500",
+    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e9d15?w=500",
     stock: 20,
   },
   {

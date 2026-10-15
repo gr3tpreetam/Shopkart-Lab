@@ -145,3 +145,43 @@ export const logoutCustomer = (req, res) => {
         message: "Logged out successfully",
     });
 };
+
+export const updateCustomer = async (req, res) => {
+    try {
+        const { fullName, password } = req.body;
+        const customer = req.user; // from authMiddleware
+
+        if (fullName) {
+            customer.fullName = fullName;
+        }
+
+        if (password) {
+            if (password.length < 6) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Password must contain at least 6 characters",
+                });
+            }
+            customer.password = await bcrypt.hash(password, 10);
+        }
+
+        await customer.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Profile updated successfully",
+            customer: {
+                _id: customer._id,
+                fullName: customer.fullName,
+                email: customer.email,
+                phone: customer.phone,
+            },
+        });
+    } catch (error) {
+        console.error("Update profile error:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+        });
+    }
+};
